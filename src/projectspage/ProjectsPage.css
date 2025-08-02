@@ -1,0 +1,126 @@
+/* Filename: src/projectspage/ProjectsPage.css (Updated) */
+
+.projects-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 2rem 2rem;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.projects-header .highlight {
+  color: #FF7F50;
+}
+
+.projects-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  flex-grow: 1; /* Allows description to take up available space */
+  margin-bottom: 1.5rem;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* --- NEW Button Styles --- */
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto; /* Pushes buttons to the bottom of the card */
+}
+
+.project-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.project-button.primary {
+  background-color: #FF7F50;
+  color: #FFFFFF;
+}
+
+.project-button.primary:hover {
+  background-color: #e66a3d;
+}
+
+.project-button.secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.project-button.secondary:hover {
+  background-color: #d1d1d1;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,248 @@
+/* Filename: src/contactpage/ContactPage.css */
+
+.contact-page-container {
+  width: 100%;
+  flex-grow: 1; /* Make this container fill the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to the bottom */
+  background-color: #1a1a1a;
+  color: #a0aec0;
+  padding: 120px 2rem 4rem; /* Add bottom padding to lift it from the edge */
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.footer-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- Top Section --- */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.footer-top h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.hire-me-button {
+  background-color: #FF7F50;
+  color: #FFFFFF;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.hire-me-button:hover {
+  background-color: #e66a3d;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 2rem 0;
+}
+
+/* --- Middle Section --- */
+.footer-middle {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Adjusted to 3 columns */
+  gap: 3rem;
+}
+
+.footer-about .footer-logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+.footer-about p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  color: #a0aec0;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #FF7F50;
+}
+
+.footer-links h4 {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-links ul li {
+  margin-bottom: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #a0aec0;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #FF7F50;
+}
+
+/* --- Subscribe Section --- */
+.footer-subscribe {
+  text-align: center;
+}
+
+.footer-subscribe h4 {
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.subscribe-form {
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  padding: 5px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.subscribe-form input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.subscribe-form button {
+  border: none;
+  background-color: #FF7F50;
+  color: #FFFFFF;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #e66a3d;
+}
+
+/* --- Bottom Section --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-legal a {
+  text-decoration: none;
+  color: #a0aec0;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #FFFFFF;
+}
+
+/* --- Info Item from Contact Section --- */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-icon {
+  color: #FF7F50;
+  flex-shrink: 0;
+}
+
+.info-text h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+.info-text a, .info-text span {
+  text-decoration: none;
+  color: #a0aec0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  word-break: break-word;
+}
+
+.info-text a:hover {
+  color: #FF7F50;
+}
+
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 900px) {
+  .footer-middle {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-top, .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .subscribe-form {
+    max-width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

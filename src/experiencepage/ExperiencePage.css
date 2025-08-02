@@ -1,0 +1,181 @@
+/* Filename: src/experiencepage/ExperiencePage.css (Updated) */
+
+.experience-page-v2 {
+  width: 100%;
+  max-width: 1200px; /* Increased max-width */
+  margin: 0 auto;
+  padding: 120px 2rem 2rem;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-in-out;
+  color: #333;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.experience-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.experience-header .highlight {
+  color: #FF7F50;
+}
+
+.experience-timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center; /* Vertically center align all items in the row */
+  position: relative;
+  padding: 2rem 0;
+}
+
+.experience-left {
+  flex: 1;
+  text-align: left;
+  padding-right: 10rem; /* INCREASED: More space */
+}
+
+.experience-left h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.experience-left p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.experience-right {
+  flex: 1;
+  text-align: left;
+  padding-left: 10rem; /* INCREASED: More space */
+}
+
+.experience-right h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.experience-right p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.timeline-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 24px;
+}
+
+/* The vertical dotted line */
+.timeline-connector::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 3px dotted #1a1a1a;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* For the FIRST item, the line should start at the dot's center */
+.experience-item:first-child .timeline-connector::before {
+  top: 50%;
+}
+
+/* For the LAST item, the line should end at the dot's center */
+.experience-item:last-child .timeline-connector::before {
+  height: 50%;
+}
+
+.timeline-dot {
+  width: 24px; /* INCREASED: Larger circle */
+  height: 24px; /* INCREASED: Larger circle */
+  border-radius: 50%;
+  z-index: 1;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.dot-orange {
+  border: 5px solid #FF7F50; /* Adjusted border for new size */
+}
+
+.dot-dark {
+  border: 5px solid #1a1a1a; /* Adjusted border for new size */
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .experience-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .experience-left, .experience-right {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .timeline-connector {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    order: -1;
+  }
+
+  .timeline-connector::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 2px dotted #ccc;
+    transform: translateY(-50%);
+  }
+  
+  .experience-item:first-child .timeline-connector::before,
+  .experience-item:last-child .timeline-connector::before {
+      height: auto;
+      width: 100%;
+      top: 50%;
+      bottom: auto;
+  }
+
+  .timeline-dot {
+    margin: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

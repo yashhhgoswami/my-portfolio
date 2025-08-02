@@ -1,0 +1,147 @@
+/* Filename: src/aboutpage/AboutPage.css */
+
+.about-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  animation: pageFadeIn 0.5s ease-in-out;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* --- Left Column: Image --- */
+.about-image-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Stack image and icons vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: clamp(280px, 30vw, 400px);
+  height: clamp(280px, 30vw, 400px);
+  position: relative;
+  margin-bottom: 1.5rem; /* Space between image and icons */
+}
+
+/* This creates the circle behind the image */
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Social Icons below image --- */
+.social-icons-footer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icons-footer a {
+  color: #555;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons-footer a:hover {
+  color: #FF7F50;
+  transform: translateY(-3px);
+}
+
+
+/* --- Right Column: Details --- */
+.about-details-column {
+  flex: 1.5;
+  color: #333;
+}
+
+.about-me-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+}
+
+.about-me-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+/* --- Skills Section --- */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-bar {
+  width: 100%;
+}
+
+.skill-name {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #FF7F50, #ff9b71);
+  border-radius: 5px;
+  animation: progressAnimation 1.5s ease-out forwards;
+}
+
+/* --- Animations --- */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes progressAnimation {
+  from { width: 0% !important; }
+  to { /* Width is set inline */ }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

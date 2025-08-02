@@ -1,38 +1,144 @@
-.App {
+/* Filename: src/App.css */
+
+/* --- General & Font Styles --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.portfolio-app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent all scrolling */
+  position: relative;
+}
+
+/* --- Header & Navigation Styles --- */
+.portfolio-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+.main-nav { background-color: #1a1a1a; padding: 0.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); border: 1px solid #333; }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.5rem; }
+.main-nav a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: #FFFFFF; font-weight: 600; border-radius: 50px; transition: all 0.3s ease-in-out; }
+.main-nav a:hover { color: #FF7F50; }
+.main-nav a.active-link { background-color: #FF7F50; color: #FFFFFF; }
+.logo-placeholder { padding: 0 1rem; }
+
+/* --- Logo Style --- */
+.nav-logo {
+  height: 30px;
+  width: auto;
+  vertical-align: middle;
+}
+
+
+/* --- Hero Section Layout --- */
+.new-hero-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+  padding: 12vh 2rem 0;
+  box-sizing: border-box;
+}
+
+.hero-top-content {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero-bottom-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-heading-block h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; margin: 0; line-height: 1.1; }
+.hero-heading-block .highlight { color: #FF7F50; }
+.hello-box { display: inline-block; border: 1px solid #e0e0e0; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.7rem; margin-top: 1.7rem;}
+.hero-middle-block { display: flex; justify-content: space-around; align-items: flex-end; width: 100%; max-width: 1200px; }
+.side-info { flex: 1; max-width: 220px; padding-bottom: 2rem; }
+.left-quote { text-align: left; }
+.quote-marks { font-size: 4rem; color: #FF7F50; line-height: 0.5; font-weight: bold; }
+.left-quote p { margin: 0; font-size: 0.9rem; color: #666; }
+.right-experience { text-align: right; }
+.star-rating { margin-bottom: 0.5rem; }
+.experience-text { margin: 0; font-size: 1rem; color: #666; line-height: 1.4; }
+.experience-text strong { display: block; font-size: 2.5rem; color: #1a1a1a; font-weight: 700; }
+
+/* --- Subtitle style for layering --- */
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+  position: absolute;
+  top: calc(12vh + 90px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+/* --- Image Layering Styles --- */
+.layered-image-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
 }
 
-.App-link {
-  color: #61dafb;
+.background-circle-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile-img {
+  position: absolute;
+  bottom: 0;
+  height: 126%;
+  width: auto;
+  max-height: 700px;
+}
+
+.main-image-spacer {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* --- Action Buttons --- */
+.hero-actions-block { margin-bottom: 2rem; z-index: 2; }
+.action-button-group { position: relative; display: flex; align-items: center; background-color: rgba(224, 224, 224, 0.7); backdrop-filter: blur(10px); border-radius: 50px; padding: 5px; width: fit-content; }
+.action-button-group a { position: relative; z-index: 1; padding: 12px 28px; text-decoration: none; font-weight: 600; color: #333; transition: color 0.4s ease; white-space: nowrap; }
+.action-button-group a.active { color: white; }
+.glider { position: absolute; top: 5px; left: 0; height: calc(100% - 10px); background-color: #FF7F50; border-radius: 40px; transition: transform 0.3s ease-out, width 0.3s ease-out; z-index: 0; }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .side-info { display: none; }
+  .new-hero-section { justify-content: space-around; }
 }

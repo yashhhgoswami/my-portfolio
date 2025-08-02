@@ -1,0 +1,4 @@
+/* Filename: src/privacypage/PrivacyPage.css */
+
+/* This file can reuse the same styles as the Terms page */
+@import url('../termspage/TermsPage.css');
