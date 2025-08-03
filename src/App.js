@@ -13,12 +13,23 @@ import profileImage from './assets/meb.png';
 import circleBgImage from './assets/gola.png';
 import logoImage from './assets/logoport.png';
 
-// SVG Icon for the star (Unchanged)
+// SVG Icons
 const StarIcon = () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
 );
+const MenuIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+);
+const CloseIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+);
+
 
 // --- Home Page Component ---
 const HomePage = ({ onNavClick }) => {
@@ -94,6 +105,12 @@ const HomePage = ({ onNavClick }) => {
 // --- Main App Component (Router) ---
 function App() {
   const [activeNav, setActiveNav] = useState('Home');
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (page) => {
+    setActiveNav(page);
+    setMobileMenuOpen(false); // Close mobile menu on navigation
+  };
 
   const NavLink = ({ name, isExternal = false, href = '#' }) => {
     if (isExternal) {
@@ -109,7 +126,7 @@ function App() {
       <li>
         <a href={href} className={activeNav === name ? 'active-link' : ''} onClick={(e) => {
           e.preventDefault();
-          setActiveNav(name);
+          handleNavClick(name);
         }}>
           {name}
         </a>
@@ -120,7 +137,7 @@ function App() {
   const renderPage = () => {
     switch (activeNav) {
       case 'Home':
-        return <HomePage onNavClick={setActiveNav} />;
+        return <HomePage onNavClick={handleNavClick} />;
       case 'About':
         return <AboutPage />;
       case 'Experience':
@@ -128,7 +145,7 @@ function App() {
       case 'Project':
         return <ProjectsPage />;
       case 'Contact':
-        return <ContactPage onNavClick={setActiveNav} />;
+        return <ContactPage onNavClick={handleNavClick} />;
       case 'Terms':
         return <TermsPage />;
       case 'Privacy':
@@ -141,12 +158,13 @@ function App() {
   return (
     <div className="portfolio-app">
       <header className="portfolio-header">
-        <nav className="main-nav">
+        {/* Desktop Navigation */}
+        <nav className="main-nav desktop-nav">
           <ul>
             <NavLink name="Home" />
             <NavLink name="About" />
             <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1XuqjeIxz0L7wj9zY88hexjSmb73xjzMp/view?usp=sharing" />
-            <li className="logo-placeholder">
+            <li className="logo-placeholder" onClick={() => handleNavClick('Home')}>
               <img src={logoImage} alt="Yash Goswami Logo" className="nav-logo" />
             </li>
             <NavLink name="Experience" />
@@ -154,7 +172,29 @@ function App() {
             <NavLink name="Contact" />
           </ul>
         </nav>
+        
+        {/* Mobile Navigation Burger Icon */}
+        <div className="mobile-nav-header">
+            <img src={logoImage} alt="Yash Goswami Logo" className="mobile-logo" onClick={() => handleNavClick('Home')} />
+            <button className="mobile-menu-toggle" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+                {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+        </div>
       </header>
+
+      {/* Mobile Menu Panel */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'is-open' : ''}`}>
+        <nav>
+          <ul>
+            <NavLink name="Home" />
+            <NavLink name="About" />
+            <NavLink name="Experience" />
+            <NavLink name="Project" />
+            <NavLink name="Contact" />
+            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1XuqjeIxz0L7wj9zY88hexjSmb73xjzMp/view?usp=sharing" />
+          </ul>
+        </nav>
+      </div>
       
       {renderPage()}
     </div>

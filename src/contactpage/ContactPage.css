@@ -60,7 +60,7 @@
 /* --- Middle Section --- */
 .footer-middle {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr; /* Adjusted to 3 columns */
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
 }
 

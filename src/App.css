@@ -12,11 +12,11 @@ html, body {
 }
 
 .portfolio-app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent all scrolling */
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -26,29 +26,27 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 0;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   z-index: 100;
+  box-sizing: border-box;
 }
 .main-nav { background-color: #1a1a1a; padding: 0.5rem; border-radius: 50px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); border: 1px solid #333; }
 .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.5rem; }
 .main-nav a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: #FFFFFF; font-weight: 600; border-radius: 50px; transition: all 0.3s ease-in-out; }
 .main-nav a:hover { color: #FF7F50; }
 .main-nav a.active-link { background-color: #FF7F50; color: #FFFFFF; }
-.logo-placeholder { padding: 0 1rem; }
+.logo-placeholder { padding: 0 1rem; cursor: pointer; }
+.nav-logo { height: 30px; width: auto; vertical-align: middle; }
 
-/* --- Logo Style --- */
-.nav-logo {
-  height: 30px;
-  width: auto;
-  vertical-align: middle;
-}
-
+/* --- Mobile Navigation --- */
+.mobile-nav-header { display: none; }
+.mobile-menu { display: none; }
 
 /* --- Hero Section Layout --- */
 .new-hero-section {
-  flex-grow: 1;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,18 +54,10 @@ html, body {
   z-index: 10;
   padding: 12vh 2rem 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
-.hero-top-content {
-  text-align: center;
-}
-
-.hero-bottom-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+.hero-top-content { text-align: center; }
+.hero-bottom-content { display: flex; flex-direction: column; align-items: center; }
 .hero-heading-block h1 { font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; margin: 0; line-height: 1.1; }
 .hero-heading-block .highlight { color: #FF7F50; }
 .hello-box { display: inline-block; border: 1px solid #e0e0e0; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.7rem; margin-top: 1.7rem;}
@@ -80,65 +70,75 @@ html, body {
 .star-rating { margin-bottom: 0.5rem; }
 .experience-text { margin: 0; font-size: 1rem; color: #666; line-height: 1.4; }
 .experience-text strong { display: block; font-size: 2.5rem; color: #1a1a1a; font-weight: 700; }
-
-/* --- Subtitle style for layering --- */
-.hero-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  color: #1a1a1a;
-  position: absolute;
-  top: calc(12vh + 90px);
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 1;
-}
-
-/* --- Image Layering Styles --- */
-.layered-image-container {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 800px;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.background-circle-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.profile-img {
-  position: absolute;
-  bottom: 0;
-  height: 126%;
-  width: auto;
-  max-height: 700px;
-}
-
-.main-image-spacer {
-  width: 100%;
-  max-width: 450px;
-}
-
-/* --- Action Buttons --- */
+.hero-subtitle { font-family: 'Poppins', sans-serif; font-size: clamp(3rem, 7vw, 5rem); font-weight: 700; line-height: 1.1; color: #1a1a1a; position: absolute; top: calc(12vh + 90px); left: 0; right: 0; text-align: center; z-index: 1; }
+.layered-image-container { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 800px; z-index: 2; display: flex; justify-content: center; align-items: flex-end; }
+.background-circle-img { width: 100%; height: auto; display: block; }
+.profile-img { position: absolute; bottom: 0; height: 126%; width: auto; max-height: 700px; }
+.main-image-spacer { width: 100%; max-width: 450px; }
 .hero-actions-block { margin-bottom: 2rem; z-index: 2; }
 .action-button-group { position: relative; display: flex; align-items: center; background-color: rgba(224, 224, 224, 0.7); backdrop-filter: blur(10px); border-radius: 50px; padding: 5px; width: fit-content; }
 .action-button-group a { position: relative; z-index: 1; padding: 12px 28px; text-decoration: none; font-weight: 600; color: #333; transition: color 0.4s ease; white-space: nowrap; }
 .action-button-group a.active { color: white; }
 .glider { position: absolute; top: 5px; left: 0; height: calc(100% - 10px); background-color: #FF7F50; border-radius: 40px; transition: transform 0.3s ease-out, width 0.3s ease-out; z-index: 0; }
 
-/* --- Responsive Design --- */
-@media (max-width: 900px) {
-  .main-nav { display: none; }
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+  .desktop-nav { display: none; }
+  .mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #1a1a1a;
+  }
+  .mobile-logo { height: 35px; width: auto; }
+  .mobile-menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+    color: #1a1a1a;
+  }
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.98);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+  }
+  .mobile-menu.is-open {
+    transform: translateY(0);
+  }
+  .mobile-menu nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  .mobile-menu nav li {
+    margin: 1.5rem 0;
+  }
+  .mobile-menu nav a {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .mobile-menu nav a.active-link {
+    color: #FF7F50;
+  }
   .side-info { display: none; }
-  .new-hero-section { justify-content: space-around; }
+  .new-hero-section { justify-content: center; padding-top: 0; height: auto; min-height: 100vh; }
+  .hero-bottom-content { display: none; }
+  .hero-subtitle { top: auto; position: relative; margin-top: -15vh; font-size: clamp(2.5rem, 10vw, 4rem); }
+  .layered-image-container { max-width: 90vw; }
 }
