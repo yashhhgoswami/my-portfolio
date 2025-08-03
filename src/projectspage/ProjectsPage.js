@@ -52,7 +52,7 @@ const ProjectsPage = () => {
     {
       title: 'YG Motors',
       description: 'A sleek and responsive single-page concept website for a luxury car brand. Features a modern design, smooth animations, and a focus on providing a high-end user experience to showcase premium vehicles.',
-      techStack: ['React', 'JavaScript', 'CSS', 'Vercel'],
+      techStack: ['React', 'JavaScript', 'CSS', 'Vercel', 'Firebase', 'Node.js', 'Figma'],
       links: {
         visit: 'https://yg-motors.vercel.app/'
       }
