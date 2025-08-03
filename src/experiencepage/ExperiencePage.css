@@ -179,3 +179,41 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Filename: src/experiencepage/ExperiencePage.css */
+
+.experience-page-v2 {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 2rem 2rem;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-in-out;
+  color: var(--text-primary);
+}
+.experience-header { text-align: center; margin-bottom: 4rem; }
+.experience-header h2 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); }
+.experience-header .highlight { color: var(--highlight-color); }
+.experience-timeline-container { display: flex; flex-direction: column; gap: 0; }
+.experience-item { display: flex; align-items: center; position: relative; padding: 2rem 0; }
+.experience-left { flex: 1; text-align: left; padding-right: 10rem; }
+.experience-left h3 { font-size: 1.4rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+.experience-left p { font-size: 1rem; color: var(--text-light); margin: 0; }
+.experience-right { flex: 1; text-align: left; padding-left: 10rem; }
+.experience-right h4 { font-size: 1.4rem; font-weight: 600; margin: 0 0 0.5rem 0; }
+.experience-right p { font-size: 1rem; color: var(--text-light); margin: 0; line-height: 1.6; }
+.timeline-connector { display: flex; justify-content: center; align-items: center; position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); width: 24px; }
+.timeline-connector::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); border-left: 3px dotted var(--border-color); z-index: 0; top: 0; bottom: 0; }
+.experience-item:first-child .timeline-connector::before { top: 50%; }
+.experience-item:last-child .timeline-connector::before { height: 50%; }
+.timeline-dot { width: 24px; height: 24px; border-radius: 50%; z-index: 1; flex-shrink: 0; box-sizing: border-box; background: var(--bg-color); }
+.dot-orange { border: 5px solid var(--accent-color); }
+.dot-dark { border: 5px solid var(--text-primary); }
+
+@media screen and (max-width: 768px) {
+  .experience-page-v2 { padding-left: 1rem; padding-right: 1rem; }
+  .experience-item { flex-direction: column; align-items: flex-start; text-align: left; gap: 1rem; padding-left: 40px; }
+  .experience-left, .experience-right { text-align: left; padding: 0; }
+  .timeline-connector { left: 0; top: 0; bottom: auto; height: 100%; width: 24px; }
+  .experience-item:first-child .timeline-connector::before, .experience-item:last-child .timeline-connector::before { top: 0; height: 100%; }
+}
