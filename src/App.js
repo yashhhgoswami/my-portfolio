@@ -212,7 +212,7 @@ function App() {
           <ul>
             <NavLink name="Home" />
             <NavLink name="About" />
-            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1XuqjeIxz0L7wj9zY88hexjSmb73xjzMp/view?usp=sharing" />
+            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/15LS4cACJ_zZfb_Y6DOtqdEBtNu2dy0y6/view?usp=sharing" />
             <li className="logo-placeholder" onClick={() => handleNavClick('Home')}>
               <img src={logoImage} alt="Yash Goswami Logo" className="nav-logo" />
             </li>
@@ -236,7 +236,7 @@ function App() {
             <NavLink name="Experience" />
             <NavLink name="Project" />
             <NavLink name="Contact" />
-            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1XuqjeIxz0L7wj9zY88hexjSmb73xjzMp/view?usp=sharing" />
+            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/15LS4cACJ_zZfb_Y6DOtqdEBtNu2dy0y6/view?usp=sharing" />
           </ul>
         </nav>
       </div>

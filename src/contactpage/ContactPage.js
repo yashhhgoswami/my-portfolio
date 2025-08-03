@@ -60,7 +60,7 @@ const ContactPage = ({ onNavClick }) => {
         {/* Top Section */}
         <div className="footer-top">
           <h2>Lets Connect there</h2>
-          <a href="https://drive.google.com/file/d/1XuqjeIxz0L7wj9zY88hexjSmb73xjzMp/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hire-me-button">
+          <a href="https://drive.google.com/file/d/15LS4cACJ_zZfb_Y6DOtqdEBtNu2dy0y6/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hire-me-button">
             Download Resume <DownloadIcon />
           </a>
         </div>
