@@ -8,8 +8,8 @@ const ExperiencePage = () => {
     {
       company: 'Teachrity',
       duration: 'July 2025 - Present',
-      role: 'Frontend Developer',
-      description: 'Developing and maintaining responsive user interfaces using React, ensuring high performance and a seamless user experience across all devices.'
+      role: 'Software Developer',
+      description: 'Designing, developing, and maintaining robust and scalable software applications. Collaborating with cross-functional teams to deliver high-quality code and innovative solutions that meet business objectives and user needs.'
     },
     {
       company: 'Defence Research and Development Organisation (DRDO), India',
