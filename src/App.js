@@ -94,54 +94,54 @@ const HomePage = ({ onNavClick, theme, setTheme }) => {
     <>
       <main className="new-hero-section">
         <div className="hero-top-content">
-            <div className="hero-heading-block">
-                <div className="hello-box">Hello!</div>
-                <h1>I'm <span className="highlight">Yash</span>,</h1>
-            </div>
+          <div className="hero-heading-block">
+            <div className="hello-box">Hello!</div>
+            <h1>I'm <span className="highlight">Yash</span>,</h1>
+            <h2 className="hero-subtitle">Full Stack Developer</h2>
+          </div>
+        </div>
+        <div className="layered-image-container">
+          <img src={circleBgImage} alt="Background circle" className="background-circle-img" />
+          <img src={profileImage} alt="Profile of Yash" className="profile-img" />
         </div>
         <div className="hero-bottom-content">
-            <div className="hero-middle-block">
-                <div className="side-info left-quote">
-                    <span className="quote-marks">“</span>
-                    <p>A final-year undergraduate enthusiastic about applying full-stack skills to contribute to impactful projects in an innovative workspace.</p>
-                </div>
-                <div className="main-image-spacer"></div>
-                <div className="side-info right-experience">
-                    <div className="star-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
-                    <p className="experience-text"><strong>2+ Roles</strong>Leadership</p>
-                </div>
+          <div className="hero-middle-block">
+            <div className="side-info left-quote">
+              <span className="quote-marks">“</span>
+              <p>A final-year undergraduate enthusiastic about applying full-stack skills to contribute to impactful projects in an innovative workspace.</p>
             </div>
-            <div className="hero-actions-block">
-              <ThemeToggler theme={theme} setTheme={setTheme} />
-              <div className="action-button-group">
-                <a 
-                  ref={projectsRef} 
-                  href="#projects" 
-                  className={activeButton === 'Projects' ? 'active' : ''} 
-                  onMouseEnter={() => setActiveButton('Projects')}
-                  onClick={(e) => { e.preventDefault(); onNavClick('Project'); }}
-                >
-                  Projects
-                </a>
-                <a 
-                  ref={contactRef} 
-                  href="#contact" 
-                  className={activeButton === 'Contact' ? 'active' : ''} 
-                  onMouseEnter={() => setActiveButton('Contact')}
-                  onClick={(e) => { e.preventDefault(); onNavClick('Contact'); }}
-                >
-                  Contact me
-                </a>
-                <div ref={gliderRef} className="glider"></div>
-              </div>
+            <div className="main-image-spacer"></div>
+            <div className="side-info right-experience">
+              <div className="star-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
+              <p className="experience-text"><strong>2+ Roles</strong>Leadership</p>
             </div>
+          </div>
+          <div className="hero-actions-block">
+            <ThemeToggler theme={theme} setTheme={setTheme} />
+            <div className="action-button-group">
+              <a
+                ref={projectsRef}
+                href="#projects"
+                className={activeButton === 'Projects' ? 'active' : ''}
+                onMouseEnter={() => setActiveButton('Projects')}
+                onClick={(e) => { e.preventDefault(); onNavClick('Project'); }}
+              >
+                Projects
+              </a>
+              <a
+                ref={contactRef}
+                href="#contact"
+                className={activeButton === 'Contact' ? 'active' : ''}
+                onMouseEnter={() => setActiveButton('Contact')}
+                onClick={(e) => { e.preventDefault(); onNavClick('Contact'); }}
+              >
+                Contact me
+              </a>
+              <div ref={gliderRef} className="glider"></div>
+            </div>
+          </div>
         </div>
       </main>
-      <h2 className="hero-subtitle">Full Stack Developer</h2>
-      <div className="layered-image-container">
-        <img src={circleBgImage} alt="Background circle" className="background-circle-img" />
-        <img src={profileImage} alt="Profile of Yash" className="profile-img" />
-      </div>
     </>
   );
 };
