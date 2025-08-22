@@ -157,6 +157,26 @@ function App() {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 
+  // Lock scroll only on Home (mobile) to preserve fixed hero framing
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 1024;
+    if (activeNav === 'Home' && isMobile) {
+      document.body.classList.add('lock-scroll');
+    } else {
+      document.body.classList.remove('lock-scroll');
+    }
+    const handleResize = () => {
+      const mobileNow = window.innerWidth <= 1024;
+      if (activeNav === 'Home' && mobileNow) {
+        document.body.classList.add('lock-scroll');
+      } else {
+        document.body.classList.remove('lock-scroll');
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activeNav]);
+
   const handleNavClick = (page) => {
     setActiveNav(page);
     setMobileMenuOpen(false);
