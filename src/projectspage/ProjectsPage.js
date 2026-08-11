@@ -42,8 +42,8 @@ const ProjectsPage = () => {
   const projects = [
     {
       title: 'RailGuard',
-      description: 'Developed a real-time IoT-based railway gate automation and alert system using an ESP32 microcontroller. Implemented Firebase cloud integration for live data logging and a mobile-responsive web dashboard for real-time alerts.',
-      techStack: ['Firebase', 'HTML', 'CSS', 'JavaScript', 'MicroPython', 'IoT'],
+      description: 'Built an IoT-based railway gate automation system using an ESP32 microcontroller and multi-sensor inputs. Integrated Firebase for live data logging, event tracking, and remote monitoring, and developed a mobile-responsive web dashboard for real-time train alerts.',
+      techStack: ['Firebase', 'HTML', 'CSS', 'JavaScript', 'MicroPython', 'ESP32'],
       links: {
         dashboard: 'https://railguard-dashboard.onrender.com/',
         simulation: 'https://wokwi.com/projects/430589393822123009'
@@ -51,8 +51,8 @@ const ProjectsPage = () => {
     },
     {
       title: 'YG Motors',
-      description: 'A sleek and responsive single-page concept website for a luxury car brand. Features a modern design, smooth animations, and a focus on providing a high-end user experience to showcase premium vehicles.',
-      techStack: ['React', 'JavaScript', 'CSS', 'Vercel', 'Firebase', 'Node.js', 'Figma'],
+      description: 'Designed and developed a responsive luxury car sales platform with advanced filtering and search. Implemented a component-based architecture in React.js, styled with Tailwind CSS, and integrated Firebase for authentication and real-time database updates.',
+      techStack: ['React.js', 'Tailwind CSS', 'Firebase', 'Node.js'],
       links: {
         visit: 'https://yg-motors.vercel.app/'
       }

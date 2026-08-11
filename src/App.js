@@ -1,5 +1,5 @@
 // Filename: src/App.js
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 // --- Import all page components and assets ---
@@ -9,7 +9,7 @@ import ProjectsPage from './projectspage/ProjectsPage';
 import ContactPage from './contactpage/ContactPage';
 import TermsPage from './termspage/TermsPage';
 import PrivacyPage from './privacypage/PrivacyPage';
-import profileImage from './assets/meb.png';
+import profileImage from './assets/replace.png';
 import circleBgImage from './assets/gola.png';
 import logoImage from './assets/logoport.png';
 
@@ -54,22 +54,22 @@ const ThemeToggler = ({ theme, setTheme }) => {
       className="theme-toggler-group"
       onMouseLeave={() => setHoveredTheme(theme)} // On mouse leave, glider returns to active theme
     >
-      <div className={`glider ${hoveredTheme === 'dark' ? 'dark-active' : ''}`}></div>
+      <div className={`glider ${hoveredTheme === 'light' ? 'light-active' : ''}`}></div>
       <button 
-        className={hoveredTheme === 'light' ? 'light-active' : ''} 
-        onClick={() => setTheme('light')} 
-        onMouseEnter={() => setHoveredTheme('light')}
-        aria-label="Switch to light theme"
-      >
-        <SunIcon /> Light
-      </button>
-      <button 
-        className={theme === 'dark' ? 'active' : ''} 
+        className={hoveredTheme === 'dark' ? 'active' : ''} 
         onClick={() => setTheme('dark')}
         onMouseEnter={() => setHoveredTheme('dark')}
         aria-label="Switch to dark theme"
       >
         <MoonIcon /> Dark
+      </button>
+      <button 
+        className={hoveredTheme === 'light' ? 'active' : ''} 
+        onClick={() => setTheme('light')} 
+        onMouseEnter={() => setHoveredTheme('light')}
+        aria-label="Switch to light theme"
+      >
+        <SunIcon /> Light
       </button>
     </div>
   );
@@ -77,19 +77,6 @@ const ThemeToggler = ({ theme, setTheme }) => {
 
 // --- Home Page Component ---
 const HomePage = ({ onNavClick, theme, setTheme }) => {
-  const [activeButton, setActiveButton] = useState('Projects');
-  const projectsRef = useRef(null);
-  const contactRef = useRef(null);
-  const gliderRef = useRef(null);
-
-  useEffect(() => {
-    const targetButton = activeButton === 'Projects' ? projectsRef.current : contactRef.current;
-    if (targetButton && gliderRef.current) {
-      gliderRef.current.style.width = `${targetButton.offsetWidth}px`;
-      gliderRef.current.style.transform = `translateX(${targetButton.offsetLeft}px)`;
-    }
-  }, [activeButton]);
-
   return (
     <>
       <main className="new-hero-section">
@@ -108,37 +95,16 @@ const HomePage = ({ onNavClick, theme, setTheme }) => {
           <div className="hero-middle-block">
             <div className="side-info left-quote">
               <span className="quote-marks">“</span>
-              <p>A final-year undergraduate enthusiastic about applying full-stack skills to contribute to impactful projects in an innovative workspace.</p>
+              <p>A passionate Software Developer enthusiastic about building scalable web platforms, real-time systems, and high-impact applications.</p>
             </div>
             <div className="main-image-spacer"></div>
             <div className="side-info right-experience">
               <div className="star-rating"><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
-              <p className="experience-text"><strong>2+ Roles</strong>Leadership</p>
+              <p className="experience-text"><strong>3+ Roles</strong>Leadership</p>
             </div>
           </div>
           <div className="hero-actions-block">
             <ThemeToggler theme={theme} setTheme={setTheme} />
-            <div className="action-button-group">
-              <a
-                ref={projectsRef}
-                href="#projects"
-                className={activeButton === 'Projects' ? 'active' : ''}
-                onMouseEnter={() => setActiveButton('Projects')}
-                onClick={(e) => { e.preventDefault(); onNavClick('Project'); }}
-              >
-                Projects
-              </a>
-              <a
-                ref={contactRef}
-                href="#contact"
-                className={activeButton === 'Contact' ? 'active' : ''}
-                onMouseEnter={() => setActiveButton('Contact')}
-                onClick={(e) => { e.preventDefault(); onNavClick('Contact'); }}
-              >
-                Contact me
-              </a>
-              <div ref={gliderRef} className="glider"></div>
-            </div>
           </div>
         </div>
       </main>
@@ -151,7 +117,7 @@ const HomePage = ({ onNavClick, theme, setTheme }) => {
 function App() {
   const [activeNav, setActiveNav] = useState('Home');
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState('light'); // 'light' or 'dark'
+  const [theme, setTheme] = useState('dark'); // Default to dark theme
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -232,7 +198,7 @@ function App() {
           <ul>
             <NavLink name="Home" />
             <NavLink name="About" />
-            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1AnJPyMQOsfs13sds8PfUZ3z_ojquHOp8/view?usp=drive_link" />
+            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1QcIZRKExvze6HLC1TFWLiypeZNa4B6vH/view?usp=drive_link" />
             <li className="logo-placeholder" onClick={() => handleNavClick('Home')}>
               <img src={logoImage} alt="Yash Goswami Logo" className="nav-logo" />
             </li>
@@ -256,7 +222,7 @@ function App() {
             <NavLink name="Experience" />
             <NavLink name="Project" />
             <NavLink name="Contact" />
-            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1AnJPyMQOsfs13sds8PfUZ3z_ojquHOp8/view?usp=drive_link" />
+            <NavLink name="Resume" isExternal={true} href="https://drive.google.com/file/d/1QcIZRKExvze6HLC1TFWLiypeZNa4B6vH/view?usp=drive_link" />
           </ul>
         </nav>
       </div>

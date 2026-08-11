@@ -1,219 +1,255 @@
-/* Filename: src/experiencepage/ExperiencePage.css (Updated) */
+/* Filename: src/experiencepage/ExperiencePage.css */
 
-.experience-page-v2 {
+.experience-page-v3 {
   width: 100%;
-  max-width: 1200px; /* Increased max-width */
+  max-width: 1050px;
   margin: 0 auto;
-  padding: 120px 2rem 2rem;
+  padding: 120px 2rem 5rem;
   box-sizing: border-box;
-  animation: fadeIn 0.8s ease-in-out;
-  color: #333;
+  animation: fadeIn 0.6s ease-in-out;
+  color: var(--text-primary);
 }
 
 .experience-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
+}
+
+.exp-badge {
+  display: inline-block;
+  background-color: rgba(255, 127, 80, 0.12);
+  color: var(--accent-color);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 127, 80, 0.3);
 }
 
 .experience-header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 5vw, 3rem);
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
 }
 
 .experience-header .highlight {
-  color: #FF7F50;
+  color: var(--highlight-color);
 }
 
-.experience-timeline-container {
+.exp-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Timeline Layout --- */
+.experience-cards-timeline {
   display: flex;
   flex-direction: column;
-  gap: 0;
-}
-
-.experience-item {
-  display: flex;
-  align-items: center; /* Vertically center align all items in the row */
+  gap: 2.5rem;
   position: relative;
-  padding: 2rem 0;
 }
 
-.experience-left {
-  flex: 1;
-  text-align: left;
-  padding-right: 10rem; /* INCREASED: More space */
-}
-
-.experience-left h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-}
-
-.experience-left p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
-}
-
-.experience-right {
-  flex: 1;
-  text-align: left;
-  padding-left: 10rem; /* INCREASED: More space */
-}
-
-.experience-right h4 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-}
-
-.experience-right p {
-  font-size: 1rem;
-  color: #666;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.timeline-connector {
+.exp-timeline-item {
   display: flex;
-  justify-content: center;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Left Node Container & Vertical Line */
+.exp-node-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 24px;
-}
-
-/* The vertical dotted line */
-.timeline-connector::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 3px dotted #1a1a1a;
-  z-index: 0;
-  top: 0;
-  bottom: 0;
-}
-
-/* For the FIRST item, the line should start at the dot's center */
-.experience-item:first-child .timeline-connector::before {
-  top: 50%;
-}
-
-/* For the LAST item, the line should end at the dot's center */
-.experience-item:last-child .timeline-connector::before {
-  height: 50%;
-}
-
-.timeline-dot {
-  width: 24px; /* INCREASED: Larger circle */
-  height: 24px; /* INCREASED: Larger circle */
-  border-radius: 50%;
-  z-index: 1;
+  position: relative;
   flex-shrink: 0;
-  box-sizing: border-box;
-  background: #fff;
+  padding-top: 0.5rem;
 }
 
-.dot-orange {
-  border: 5px solid #FF7F50; /* Adjusted border for new size */
+.exp-node-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(255, 127, 80, 0.25);
+  z-index: 2;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.dot-dark {
-  border: 5px solid #1a1a1a; /* Adjusted border for new size */
+.exp-timeline-item:hover .exp-node-icon {
+  transform: scale(1.1);
+  background: var(--accent-color);
+  color: #ffffff;
 }
 
+.exp-timeline-line {
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-color), var(--border-color));
+  position: absolute;
+  top: 50px;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .experience-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    padding-left: 0;
-    padding-right: 0;
-  }
+/* --- Experience Card --- */
+.exp-card {
+  flex: 1;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+}
 
-  .experience-left, .experience-right {
-    text-align: center;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .timeline-connector {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    order: -1;
-  }
+.exp-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
 
-  .timeline-connector::before {
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-top: 2px dotted #ccc;
-    transform: translateY(-50%);
-  }
-  
-  .experience-item:first-child .timeline-connector::before,
-  .experience-item:last-child .timeline-connector::before {
-      height: auto;
-      width: 100%;
-      top: 50%;
-      bottom: auto;
-  }
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
 
-  .timeline-dot {
-    margin: 0;
-  }
+.exp-role {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.3rem 0;
+}
+
+.exp-company {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.exp-meta-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.exp-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 127, 80, 0.12);
+  color: var(--accent-color);
+  border: 1px solid rgba(255, 127, 80, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.exp-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Tech Stack Pills */
+.exp-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.exp-tech-pill {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.25rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Points List */
+.exp-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.exp-points-list li {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.exp-points-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent-color);
+  font-size: 0.9rem;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Filename: src/experiencepage/ExperiencePage.css */
-
-.experience-page-v2 {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 120px 2rem 2rem;
-  box-sizing: border-box;
-  animation: fadeIn 0.8s ease-in-out;
-  color: var(--text-primary);
-}
-.experience-header { text-align: center; margin-bottom: 4rem; }
-.experience-header h2 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); }
-.experience-header .highlight { color: var(--highlight-color); }
-.experience-timeline-container { display: flex; flex-direction: column; gap: 0; }
-.experience-item { display: flex; align-items: center; position: relative; padding: 2rem 0; }
-.experience-left { flex: 1; text-align: left; padding-right: 10rem; }
-.experience-left h3 { font-size: 1.4rem; font-weight: 600; margin: 0 0 0.5rem 0; }
-.experience-left p { font-size: 1rem; color: var(--text-light); margin: 0; }
-.experience-right { flex: 1; text-align: left; padding-left: 10rem; }
-.experience-right h4 { font-size: 1.4rem; font-weight: 600; margin: 0 0 0.5rem 0; }
-.experience-right p { font-size: 1rem; color: var(--text-light); margin: 0; line-height: 1.6; }
-.timeline-connector { display: flex; justify-content: center; align-items: center; position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); width: 24px; }
-.timeline-connector::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); border-left: 3px dotted var(--border-color); z-index: 0; top: 0; bottom: 0; }
-.experience-item:first-child .timeline-connector::before { top: 50%; }
-.experience-item:last-child .timeline-connector::before { height: 50%; }
-.timeline-dot { width: 24px; height: 24px; border-radius: 50%; z-index: 1; flex-shrink: 0; box-sizing: border-box; background: var(--bg-color); }
-.dot-orange { border: 5px solid var(--accent-color); }
-.dot-dark { border: 5px solid var(--text-primary); }
-
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .experience-page-v2 { padding-left: 1rem; padding-right: 1rem; }
-  .experience-item { flex-direction: column; align-items: flex-start; text-align: left; gap: 1rem; padding-left: 40px; }
-  .experience-left, .experience-right { text-align: left; padding: 0; }
-  .timeline-connector { left: 0; top: 0; bottom: auto; height: 100%; width: 24px; }
-  .experience-item:first-child .timeline-connector::before, .experience-item:last-child .timeline-connector::before { top: 0; height: 100%; }
+  .experience-page-v3 {
+    padding: 100px 1.25rem 3rem;
+  }
+
+  .exp-timeline-item {
+    gap: 1rem;
+  }
+
+  .exp-node-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .exp-card {
+    padding: 1.35rem;
+  }
+
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
